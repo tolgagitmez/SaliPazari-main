@@ -1,0 +1,18 @@
+C:\Users\303\Documents\GitHub\BiliYorumWebApp\SaliPazariWinformsApp\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\303\Documents\GitHub\BiliYorumWebApp\SaliPazariWinformsApp\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\303\Documents\GitHub\BiliYorumWebApp\SaliPazariWinformsApp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\303\Documents\GitHub\BiliYorumWebApp\SaliPazariWinformsApp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\303\Documents\GitHub\BiliYorumWebApp\SaliPazariWinformsApp\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\303\Documents\GitHub\BiliYorumWebApp\SaliPazariWinformsApp\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\303\Documents\GitHub\SaliPazari\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\303\Documents\GitHub\SaliPazari\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\303\Documents\GitHub\SaliPazari\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\303\Documents\GitHub\SaliPazari\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\303\Documents\GitHub\SaliPazari\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\303\Documents\GitHub\SaliPazari\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\teteg\OneDrive\Masaüstü\yeni proje\SaliPazari-main\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\teteg\OneDrive\Masaüstü\yeni proje\SaliPazari-main\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\teteg\OneDrive\Masaüstü\yeni proje\SaliPazari-main\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\teteg\OneDrive\Masaüstü\yeni proje\SaliPazari-main\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\teteg\OneDrive\Masaüstü\yeni proje\SaliPazari-main\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\teteg\OneDrive\Masaüstü\yeni proje\SaliPazari-main\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
