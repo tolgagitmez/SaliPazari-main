@@ -250,5 +250,78 @@ namespace DataAccessLayer
         }
 
         #endregion
+
+        #region Alış ve Satış Metodları
+        public List<SatisDetaylarAdo> SatisListele()
+        {
+            try
+            {
+                List<SatisDetaylarAdo> sd = new List<SatisDetaylarAdo>();
+                cmd.CommandText = "select sd.ID, u.UrunAdi, y.Isim, s.FaturaNo, s.Tarih, sd.Adet, sd.Fiyat, u.StokMiktari from SatisDetaylar as sd join Urunler as u on sd.Urun_ID = u.ID join Satislar as s on sd.Satis_ID = s.ID join Yoneticiler as y on s.Kasiyer_ID = y.ID";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader okuyucu = cmd.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    SatisDetaylarAdo std = new SatisDetaylarAdo();
+                    
+                    std.ID = okuyucu.GetInt32(0);
+                    std.UrunAdi = okuyucu.GetString(1);
+                    std.Yonetici = okuyucu.GetString(2);
+                    std.BarkodNo = okuyucu.GetString(3);
+                    std.Tarih = okuyucu.GetDateTime(4);
+                    std.Adet = okuyucu.GetInt32(5);
+                    std.Fiyat = okuyucu.GetDecimal(6);
+                    std.StokMiktari = okuyucu.GetInt32(7);
+                    sd.Add(std);
+                }
+                return sd;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+        public List<AlimlarAdo> AlisListele()
+        {
+            try
+            {
+                List<AlimlarAdo> alimlars = new List<AlimlarAdo>();
+                cmd.CommandText = "select a.ID, u.UrunAdi, a.Adet, a.AlisFiyat, u.StokMiktari, a.Tarih from Alimlar as a join Urunler as u on a.Urun_ID = u.ID";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader okuyucu = cmd.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    AlimlarAdo alinan = new AlimlarAdo();
+
+                    alinan.ID = okuyucu.GetInt32(0);
+                    alinan.UrunAdi = okuyucu.GetString(1);
+                    alinan.Adet = okuyucu.GetInt32(2);
+                    alinan.AlisFiyat = okuyucu.GetDecimal(3);
+                    alinan.StokMiktari= okuyucu.GetInt32(4);
+                    alinan.Tarih = okuyucu.GetDateTime(5);
+                    
+                    alimlars.Add(alinan);
+                }
+                return alimlars;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
     }
 }

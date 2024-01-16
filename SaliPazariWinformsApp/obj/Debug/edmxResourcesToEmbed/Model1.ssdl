@@ -127,6 +127,8 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Isim" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SaliPazari_DB.dbo.urunlerview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <Association Name="FK_Alimlar_Urunler">
     <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
     <End Role="Alimlar" Type="Self.Alimlar" Multiplicity="*" />

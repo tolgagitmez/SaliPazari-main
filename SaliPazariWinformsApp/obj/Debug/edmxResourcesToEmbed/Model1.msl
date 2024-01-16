@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SaliPazari_DBModelStoreContainer" CdmEntityContainer="SaliPazari_DBEntities">
-    <EntitySetMapping Name="Alimlars">
-      <EntityTypeMapping TypeName="SaliPazari_DBModel.Alimlar">
-        <MappingFragment StoreEntitySet="Alimlar">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
-          <ScalarProperty Name="Adet" ColumnName="Adet" />
-          <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
-          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Ilcelers">
       <EntityTypeMapping TypeName="SaliPazari_DBModel.Ilceler">
         <MappingFragment StoreEntitySet="Ilceler">
@@ -136,6 +125,17 @@
           <ScalarProperty Name="Tedarikci_ID" ColumnName="Tedarikci_ID" />
           <ScalarProperty Name="Marka_ID" ColumnName="Marka_ID" />
           <ScalarProperty Name="Kategori_ID" ColumnName="Kategori_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alimlars">
+      <EntityTypeMapping TypeName="SaliPazari_DBModel.Alimlar">
+        <MappingFragment StoreEntitySet="Alimlar">
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

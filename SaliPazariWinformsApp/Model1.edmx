@@ -132,6 +132,8 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Isim" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SaliPazari_DB.dbo.urunlerview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <Association Name="FK_Alimlar_Urunler">
           <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
           <End Role="Alimlar" Type="Self.Alimlar" Multiplicity="*" />
@@ -326,17 +328,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SaliPazari_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Alimlar">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Urun_ID" Type="Int32" />
-          <Property Name="Adet" Type="Int32" />
-          <Property Name="AlisFiyat" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Tarih" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Urunler" Relationship="SaliPazari_DBModel.FK_Alimlar_Urunler" FromRole="Alimlar" ToRole="Urunler" />
-        </EntityType>
         <EntityType Name="Ilceler">
           <Key>
             <PropertyRef Name="ID" />
@@ -525,7 +516,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SaliPazari_DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Alimlars" EntityType="Self.Alimlar" />
           <EntitySet Name="Ilcelers" EntityType="Self.Ilceler" />
           <EntitySet Name="Kategorilers" EntityType="Self.Kategoriler" />
           <EntitySet Name="Markalars" EntityType="Self.Markalar" />
@@ -561,10 +551,6 @@
             <End Role="Yoneticiler" EntitySet="Yoneticilers" />
           </AssociationSet>
           <EntitySet Name="Urunlers" EntityType="SaliPazari_DBModel.Urunler" />
-          <AssociationSet Name="FK_Alimlar_Urunler" Association="SaliPazari_DBModel.FK_Alimlar_Urunler">
-            <End Role="Urunler" EntitySet="Urunlers" />
-            <End Role="Alimlar" EntitySet="Alimlars" />
-          </AssociationSet>
           <AssociationSet Name="FK_Urunler_Kategoriler" Association="SaliPazari_DBModel.FK_Urunler_Kategoriler">
             <End Role="Kategoriler" EntitySet="Kategorilers" />
             <End Role="Urunler" EntitySet="Urunlers" />
@@ -580,6 +566,11 @@
           <AssociationSet Name="FK_Urunler_Tedarikciler" Association="SaliPazari_DBModel.FK_Urunler_Tedarikciler">
             <End Role="Tedarikciler" EntitySet="Tedarikcilers" />
             <End Role="Urunler" EntitySet="Urunlers" />
+          </AssociationSet>
+          <EntitySet Name="Alimlars" EntityType="SaliPazari_DBModel.Alimlar" />
+          <AssociationSet Name="FK_Alimlar_Urunler" Association="SaliPazari_DBModel.FK_Alimlar_Urunler">
+            <End Role="Urunler" EntitySet="Urunlers" />
+            <End Role="Alimlar" EntitySet="Alimlars" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Urunler">
@@ -599,24 +590,12 @@
           <Property Name="BarkodNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Resim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsfFastProduct" Type="Boolean" />
-          <NavigationProperty Name="Alimlars" Relationship="SaliPazari_DBModel.FK_Alimlar_Urunler" FromRole="Urunler" ToRole="Alimlar" />
           <NavigationProperty Name="Kategoriler" Relationship="SaliPazari_DBModel.FK_Urunler_Kategoriler" FromRole="Urunler" ToRole="Kategoriler" />
           <NavigationProperty Name="Markalar" Relationship="SaliPazari_DBModel.FK_Urunler_Markalar" FromRole="Urunler" ToRole="Markalar" />
           <NavigationProperty Name="SatisDetaylars" Relationship="SaliPazari_DBModel.FK_SatisDetaylar_Urunler" FromRole="Urunler" ToRole="SatisDetaylar" />
           <NavigationProperty Name="Tedarikciler" Relationship="SaliPazari_DBModel.FK_Urunler_Tedarikciler" FromRole="Urunler" ToRole="Tedarikciler" />
+          <NavigationProperty Name="Alimlars" Relationship="SaliPazari_DBModel.FK_Alimlar_Urunler" FromRole="Urunler" ToRole="Alimlar" />
         </EntityType>
-        <Association Name="FK_Alimlar_Urunler">
-          <End Type="SaliPazari_DBModel.Urunler" Role="Urunler" Multiplicity="0..1" />
-          <End Type="SaliPazari_DBModel.Alimlar" Role="Alimlar" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Urunler">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Alimlar">
-              <PropertyRef Name="Urun_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Urunler_Kategoriler">
           <End Type="SaliPazari_DBModel.Kategoriler" Role="Kategoriler" Multiplicity="0..1" />
           <End Type="SaliPazari_DBModel.Urunler" Role="Urunler" Multiplicity="*" />
@@ -665,23 +644,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Alimlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Urun_ID" Type="Int32" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="AlisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Urunler" Relationship="SaliPazari_DBModel.FK_Alimlar_Urunler" FromRole="Alimlar" ToRole="Urunler" />
+        </EntityType>
+        <Association Name="FK_Alimlar_Urunler">
+          <End Type="SaliPazari_DBModel.Urunler" Role="Urunler" Multiplicity="0..1" />
+          <End Type="SaliPazari_DBModel.Alimlar" Role="Alimlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Alimlar">
+              <PropertyRef Name="Urun_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SaliPazari_DBModelStoreContainer" CdmEntityContainer="SaliPazari_DBEntities">
-          <EntitySetMapping Name="Alimlars">
-            <EntityTypeMapping TypeName="SaliPazari_DBModel.Alimlar">
-              <MappingFragment StoreEntitySet="Alimlar">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
-                <ScalarProperty Name="Adet" ColumnName="Adet" />
-                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
-                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Ilcelers">
             <EntityTypeMapping TypeName="SaliPazari_DBModel.Ilceler">
               <MappingFragment StoreEntitySet="Ilceler">
@@ -806,6 +797,17 @@
                 <ScalarProperty Name="Tedarikci_ID" ColumnName="Tedarikci_ID" />
                 <ScalarProperty Name="Marka_ID" ColumnName="Marka_ID" />
                 <ScalarProperty Name="Kategori_ID" ColumnName="Kategori_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alimlars">
+            <EntityTypeMapping TypeName="SaliPazari_DBModel.Alimlar">
+              <MappingFragment StoreEntitySet="Alimlar">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

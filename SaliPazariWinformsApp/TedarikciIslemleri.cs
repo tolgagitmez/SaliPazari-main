@@ -20,10 +20,6 @@ namespace SaliPazariWinformsApp
         public TedarikciIslemleri()
         {
             InitializeComponent();
-            cb_ilce.DisplayMember = "Isim";
-            cb_ilce.ValueMember = "ID";
-            cb_sehir.DisplayMember = "Isim";
-            cb_sehir.ValueMember = "ID";
             GridDoldur();
         }
 
@@ -124,7 +120,14 @@ namespace SaliPazariWinformsApp
 
         private void Tedarikciİslemleri_Load(object sender, EventArgs e)
         {
+            cb_sehir.DisplayMember = "Isim";
+            cb_sehir.ValueMember = "ID";
             cb_sehir.DataSource = db.Sehirlers.ToList();
+            cb_sehir.Text = "Seçiniz...";
+            cb_ilce.DisplayMember = "Isim";
+            cb_ilce.ValueMember = "ID";
+            cb_ilce.Text = "Seçiniz...";
+            
             GridDoldur();
         }
 
@@ -205,8 +208,13 @@ namespace SaliPazariWinformsApp
         private void Temizle()
         {
             tb_tedarikciID.Text = tb_firmaAdi.Text = tb_firmaUnvani.Text = tb_sorumlu.Text = tb_adres.Text = tb_telefon.Text = tb_mail.Text = "";
+            cb_sehir.DisplayMember = "Isim";
+            cb_sehir.ValueMember = "ID";
             cb_sehir.DataSource = db.Sehirlers.ToList();
-            cb_ilce.DataSource = db.Ilcelers.ToList();
+            cb_sehir.Text = "Seçiniz...";
+            cb_ilce.DisplayMember = "Isim";
+            cb_ilce.ValueMember = "ID";
+            cb_ilce.Text = "Seçiniz...";
             IsActive.Checked = false;
             btn_guncelle.Visible = false;
             btn_ekle.Visible = true;

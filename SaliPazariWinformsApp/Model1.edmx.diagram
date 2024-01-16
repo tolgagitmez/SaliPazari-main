@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="91fd5bf821934369aecaa0c33c28d2b1" Name="Diagram1" ZoomLevel="115">
-        <EntityTypeShape EntityType="SaliPazari_DBModel.Alimlar" Width="1.5" PointX="9.75" PointY="3.875" IsExpanded="true" />
+      <Diagram DiagramId="91fd5bf821934369aecaa0c33c28d2b1" Name="Diagram1" ZoomLevel="81">
         <EntityTypeShape EntityType="SaliPazari_DBModel.Ilceler" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="SaliPazari_DBModel.Kategoriler" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SaliPazari_DBModel.Markalar" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
@@ -23,11 +22,12 @@
         <AssociationConnector Association="SaliPazari_DBModel.FK_Tedarikciler_Sehirler" ManuallyRouted="false" />
         <AssociationConnector Association="SaliPazari_DBModel.FK_Yoneticiler_YoneticiYetkiler" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SaliPazari_DBModel.Urunler" Width="1.5" PointX="7.5" PointY="6.5" />
-        <AssociationConnector Association="SaliPazari_DBModel.FK_Alimlar_Urunler" />
         <AssociationConnector Association="SaliPazari_DBModel.FK_Urunler_Kategoriler" />
         <AssociationConnector Association="SaliPazari_DBModel.FK_Urunler_Markalar" />
         <AssociationConnector Association="SaliPazari_DBModel.FK_SatisDetaylar_Urunler" />
         <AssociationConnector Association="SaliPazari_DBModel.FK_Urunler_Tedarikciler" />
+        <EntityTypeShape EntityType="SaliPazari_DBModel.Alimlar" Width="1.5" PointX="9.75" PointY="7.625" />
+        <AssociationConnector Association="SaliPazari_DBModel.FK_Alimlar_Urunler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

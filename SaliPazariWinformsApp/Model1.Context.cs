@@ -25,7 +25,6 @@ namespace SaliPazariWinformsApp
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Alimlar> Alimlars { get; set; }
         public virtual DbSet<Ilceler> Ilcelers { get; set; }
         public virtual DbSet<Kategoriler> Kategorilers { get; set; }
         public virtual DbSet<Markalar> Markalars { get; set; }
@@ -37,5 +36,6 @@ namespace SaliPazariWinformsApp
         public virtual DbSet<Yoneticiler> Yoneticilers { get; set; }
         public virtual DbSet<YoneticiYetkiler> YoneticiYetkilers { get; set; }
         public virtual DbSet<Urunler> Urunlers { get; set; }
+        public virtual DbSet<Alimlar> Alimlars { get; set; }
     }
 }

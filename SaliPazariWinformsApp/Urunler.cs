@@ -17,8 +17,8 @@ namespace SaliPazariWinformsApp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Urunler()
         {
-            this.Alimlars = new HashSet<Alimlar>();
             this.SatisDetaylars = new HashSet<SatisDetaylar>();
+            this.Alimlars = new HashSet<Alimlar>();
         }
     
         public int ID { get; set; }
@@ -35,12 +35,12 @@ namespace SaliPazariWinformsApp
         public string Resim { get; set; }
         public Nullable<bool> IsfFastProduct { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Alimlar> Alimlars { get; set; }
         public virtual Kategoriler Kategoriler { get; set; }
         public virtual Markalar Markalar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SatisDetaylar> SatisDetaylars { get; set; }
         public virtual Tedarikciler Tedarikciler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Alimlar> Alimlars { get; set; }
     }
 }

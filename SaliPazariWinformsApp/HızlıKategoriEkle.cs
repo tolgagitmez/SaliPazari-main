@@ -32,6 +32,7 @@ namespace SaliPazariWinformsApp
             KategoriIslemleri kat = new KategoriIslemleri();
             kat.guncelle();
             MessageBox.Show("Kategori Başarıyla Eklendi");
+            this.Close();
         }
     }
 }

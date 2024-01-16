@@ -111,5 +111,71 @@ namespace SaliPazariWinformsApp
                 frm.Show();
             }
         }
+
+        private void TSMI_satis_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(Satisİslerimleri))
+                {
+                    item.Activate();
+                    acikmi = true;
+                }
+            }
+            if (acikmi == false)
+            {
+                Satisİslerimleri frm = new Satisİslerimleri();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_AlisIslemleri_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(AlisIslemleri))
+                {
+                    item.Activate();
+                    acikmi = true;
+                }
+            }
+            if (acikmi == false)
+            {
+                AlisIslemleri frm = new AlisIslemleri();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_admin_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(AdminIslemleri))
+                {
+                    item.Activate();
+                    acikmi = true;
+                }
+            }
+            if (acikmi == false)
+            {
+                AdminIslemleri frm = new AdminIslemleri();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
     }
 }

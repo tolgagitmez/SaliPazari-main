@@ -23,25 +23,30 @@ namespace SaliPazariWinformsApp
             InitializeComponent();
             openFileDialog1.Filter = "jpeg Resmi|*.jpg|png Resmi|*.png";
             GridDoldur();
+
         }
 
         private void UrunIslemleri_Load(object sender, EventArgs e)
         {
             cb_kategori.ValueMember = "ID";
             cb_kategori.DisplayMember = "Isim";
-            cb_kategori.DataSource = db.Kategorilers.ToList();
+            cb_kategori.DataSource = db.Kategorilers.Where(x => x.IsDeleted == false).ToList();
             cb_kategori.Text = "Seçiniz...";
+
 
             cb_marka.ValueMember = "ID";
             cb_marka.DisplayMember = "Isim";
-            cb_marka.DataSource = db.Markalars.ToList();
+            cb_marka.DataSource = db.Markalars.Where(x => x.IsDeleted == false).ToList();
             cb_marka.Text = "Seçiniz...";
 
             cb_Tedarikci.ValueMember = "ID";
             cb_Tedarikci.DisplayMember = "FirmaIsim";
-            cb_Tedarikci.DataSource = db.Tedarikcilers.ToList();
+            cb_Tedarikci.DataSource = db.Tedarikcilers.Where(x => x.IsDeleted == false).ToList();
             cb_Tedarikci.Text = "Seçiniz...";
-          
+
+            //dataGridView1.DataSource = db.urunlerviews.ToList();
+            GridDoldur();
+
         }
 
         private void btn_resimSec_Click(object sender, EventArgs e)
@@ -118,7 +123,7 @@ namespace SaliPazariWinformsApp
             dataGridView1.Columns[9].Width = 60;
             dataGridView1.Columns[10].Name = "Hızlı Ürün";
             dataGridView1.Columns[10].Width = 60;
-            
+
 
             List<Urunler> uruns = db.Urunlers.ToList();
             foreach (Urunler item in uruns)
@@ -286,9 +291,12 @@ namespace SaliPazariWinformsApp
 
         private void Temizle()
         {
-            cb_kategori.DataSource = db.Kategorilers.ToList();
-            cb_marka.DataSource = db.Markalars.ToList();
-            cb_Tedarikci.DataSource = db.Tedarikcilers.ToList();
+            cb_kategori.DataSource = db.Kategorilers.Where(x => x.IsDeleted == false).ToList();
+            cb_kategori.Text = "Seçiniz...";
+            cb_marka.DataSource = db.Markalars.Where(x => x.IsDeleted == false).ToList();
+            cb_marka.Text = "Seçiniz...";
+            cb_Tedarikci.DataSource = db.Tedarikcilers.Where(x => x.IsDeleted == false).ToList();
+            cb_Tedarikci.Text = "Seçiniz...";
             tb_barkod.Text = tb_urunAdi.Text = "";
             nu_fiyat.Value = 0;
             nu_GuvenlikStok.Value = 0;
