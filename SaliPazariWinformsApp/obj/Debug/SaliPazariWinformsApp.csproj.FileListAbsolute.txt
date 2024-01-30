@@ -149,3 +149,4 @@ C:\Users\teteg\Masaüstü\SaliPazari-calisma\SaliPazariWinformsApp\obj\Debug\Sal
 C:\Users\teteg\Masaüstü\SaliPazari-calisma\SaliPazariWinformsApp\obj\Debug\SaliPazariWinformsApp.SatislarForm.resources
 C:\Users\teteg\Masaüstü\SaliPazari-calisma\SaliPazariWinformsApp\obj\Debug\SaliPazariWinformsApp.SatisDetayIslemleri.resources
 C:\Users\teteg\Masaüstü\SaliPazari-calisma\SaliPazariWinformsApp\obj\Debug\SaliPazariWinformsApp.TaksitIslemleri.resources
+C:\Users\teteg\Masaüstü\SaliPazari-calisma\SaliPazariWinformsApp\obj\Debug\SaliPazariWinformsApp.Raporlama.resources

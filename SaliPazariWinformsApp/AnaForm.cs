@@ -221,5 +221,27 @@ namespace SaliPazariWinformsApp
                 frm.Show();
             }
         }
+
+        private void TSMI_Raporlama_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(Raporlama))
+                {
+                    item.Activate();
+                    acikmi = true;
+                }
+            }
+            if (acikmi == false)
+            {
+                Raporlama frm = new Raporlama();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
     }
 }

@@ -28,11 +28,40 @@ namespace SaliPazariWinformsApp
 
         private void SatisModulu_Load(object sender, EventArgs e)
         {
+            List<Urunler> ManavUrunleri = db.Urunlers.Where(x => x.IsfFastProduct == true && x.Kategori_ID == 17).ToList();
+            foreach (Urunler item in ManavUrunleri)
+            {
+                HizliUrun hu = new HizliUrun("../../UrunResim/" + item.Resim, item.UrunAdi, item.ID);
+                flowLayoutPanel3.Controls.Add(hu);
+                hu.Click += Hu_Click;
+                hu.pb_resim.Click += Pb_resim_Click;
+                hu.lbl_UrunAd.Click += Lbl_UrunAd_Click;
+            }
+
+            List<Urunler> KasapUrunleri = db.Urunlers.Where(x => x.IsfFastProduct == true && x.Kategori_ID == 18).ToList();
+            foreach (Urunler item in KasapUrunleri)
+            {
+                HizliUrun hu = new HizliUrun("../../UrunResim/" + item.Resim, item.UrunAdi, item.ID);
+                flowLayoutPanel2.Controls.Add(hu);
+                hu.Click += Hu_Click;
+                hu.pb_resim.Click += Pb_resim_Click;
+                hu.lbl_UrunAd.Click += Lbl_UrunAd_Click;
+            }
+
             List<Urunler> HizliUrunler = db.Urunlers.Where(x => x.IsfFastProduct == true).ToList();
             foreach (Urunler item in HizliUrunler)
             {
                 HizliUrun hu = new HizliUrun("../../UrunResim/" + item.Resim, item.UrunAdi, item.ID);
                 flowLayoutPanel1.Controls.Add(hu);
+                hu.Click += Hu_Click;
+                hu.pb_resim.Click += Pb_resim_Click;
+                hu.lbl_UrunAd.Click += Lbl_UrunAd_Click;
+            }
+            List<Urunler> UnluMamuller = db.Urunlers.Where(x => x.IsfFastProduct == true && x.Kategori_ID == 19).ToList();
+            foreach (Urunler item in UnluMamuller)
+            {
+                HizliUrun hu = new HizliUrun("../../UrunResim/" + item.Resim, item.UrunAdi, item.ID);
+                flowLayoutPanel4.Controls.Add(hu);
                 hu.Click += Hu_Click;
                 hu.pb_resim.Click += Pb_resim_Click;
                 hu.lbl_UrunAd.Click += Lbl_UrunAd_Click;
