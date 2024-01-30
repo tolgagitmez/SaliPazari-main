@@ -37,5 +37,7 @@ namespace SaliPazariWinformsApp
         public virtual DbSet<YoneticiYetkiler> YoneticiYetkilers { get; set; }
         public virtual DbSet<Urunler> Urunlers { get; set; }
         public virtual DbSet<Alimlar> Alimlars { get; set; }
+        public virtual DbSet<TaksitDetaylar> TaksitDetaylars { get; set; }
+        public virtual DbSet<TaksitliSatislar> TaksitliSatislars { get; set; }
     }
 }

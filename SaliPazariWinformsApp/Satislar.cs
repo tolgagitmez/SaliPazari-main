@@ -18,15 +18,19 @@ namespace SaliPazariWinformsApp
         public Satislar()
         {
             this.SatisDetaylars = new HashSet<SatisDetaylar>();
+            this.TaksitDetaylars = new HashSet<TaksitDetaylar>();
         }
     
         public int ID { get; set; }
         public Nullable<int> Kasiyer_ID { get; set; }
         public Nullable<System.DateTime> Tarih { get; set; }
         public string FaturaNo { get; set; }
+        public Nullable<bool> KrediKarti { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SatisDetaylar> SatisDetaylars { get; set; }
         public virtual Yoneticiler Yoneticiler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaksitDetaylar> TaksitDetaylars { get; set; }
     }
 }

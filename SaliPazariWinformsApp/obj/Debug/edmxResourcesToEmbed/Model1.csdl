@@ -53,6 +53,8 @@
     <Property Name="FaturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="SatisDetaylars" Relationship="Self.FK_SatisDetaylar_Satislar" FromRole="Satislar" ToRole="SatisDetaylar" />
     <NavigationProperty Name="Yoneticiler" Relationship="Self.FK_Satislar_Yoneticiler" FromRole="Satislar" ToRole="Yoneticiler" />
+    <Property Name="KrediKarti" Type="Boolean" />
+    <NavigationProperty Name="TaksitDetaylars" Relationship="SaliPazari_DBModel.FK_TaksitDetaylar_Satislar" FromRole="Satislar" ToRole="TaksitDetaylar" />
   </EntityType>
   <EntityType Name="Sehirler">
     <Key>
@@ -244,6 +246,16 @@
       <End Role="Urunler" EntitySet="Urunlers" />
       <End Role="Alimlar" EntitySet="Alimlars" />
     </AssociationSet>
+    <EntitySet Name="TaksitDetaylars" EntityType="SaliPazari_DBModel.TaksitDetaylar" />
+    <EntitySet Name="TaksitliSatislars" EntityType="SaliPazari_DBModel.TaksitliSatislar" />
+    <AssociationSet Name="FK_TaksitDetaylar_Satislar" Association="SaliPazari_DBModel.FK_TaksitDetaylar_Satislar">
+      <End Role="Satislar" EntitySet="Satislars" />
+      <End Role="TaksitDetaylar" EntitySet="TaksitDetaylars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaksitDetaylar_TaksitliSatis" Association="SaliPazari_DBModel.FK_TaksitDetaylar_TaksitliSatis">
+      <End Role="TaksitliSatislar" EntitySet="TaksitliSatislars" />
+      <End Role="TaksitDetaylar" EntitySet="TaksitDetaylars" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Urunler">
     <Key>
@@ -336,6 +348,51 @@
       </Principal>
       <Dependent Role="Alimlar">
         <PropertyRef Name="Urun_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TaksitDetaylar">
+    <Key>
+      <PropertyRef Name="TaksitID" />
+    </Key>
+    <Property Name="TaksitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SatisID" Type="Int32" />
+    <Property Name="SatislarID" Type="Int32" />
+    <Property Name="TaksitTarihi" Type="DateTime" Precision="0" />
+    <Property Name="TaksitMiktari" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="OdendiMi" Type="Boolean" />
+    <NavigationProperty Name="Satislar" Relationship="SaliPazari_DBModel.FK_TaksitDetaylar_Satislar" FromRole="TaksitDetaylar" ToRole="Satislar" />
+    <NavigationProperty Name="TaksitliSatislar" Relationship="SaliPazari_DBModel.FK_TaksitDetaylar_TaksitliSatis" FromRole="TaksitDetaylar" ToRole="TaksitliSatislar" />
+  </EntityType>
+  <EntityType Name="TaksitliSatislar">
+    <Key>
+      <PropertyRef Name="SatisID" />
+    </Key>
+    <Property Name="SatisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToplamTaksitSayisi" Type="Int32" />
+    <NavigationProperty Name="TaksitDetaylars" Relationship="SaliPazari_DBModel.FK_TaksitDetaylar_TaksitliSatis" FromRole="TaksitliSatislar" ToRole="TaksitDetaylar" />
+  </EntityType>
+  <Association Name="FK_TaksitDetaylar_Satislar">
+    <End Type="SaliPazari_DBModel.Satislar" Role="Satislar" Multiplicity="0..1" />
+    <End Type="SaliPazari_DBModel.TaksitDetaylar" Role="TaksitDetaylar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satislar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaksitDetaylar">
+        <PropertyRef Name="SatislarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaksitDetaylar_TaksitliSatis">
+    <End Type="SaliPazari_DBModel.TaksitliSatislar" Role="TaksitliSatislar" Multiplicity="0..1" />
+    <End Type="SaliPazari_DBModel.TaksitDetaylar" Role="TaksitDetaylar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaksitliSatislar">
+        <PropertyRef Name="SatisID" />
+      </Principal>
+      <Dependent Role="TaksitDetaylar">
+        <PropertyRef Name="SatisID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -120,7 +120,7 @@ namespace SaliPazariWinformsApp
 
             foreach (Form item in acikformlar)
             {
-                if (item.GetType() == typeof(Satisİslerimleri))
+                if (item.GetType() == typeof(SatislarForm))
                 {
                     item.Activate();
                     acikmi = true;
@@ -128,7 +128,7 @@ namespace SaliPazariWinformsApp
             }
             if (acikmi == false)
             {
-                Satisİslerimleri frm = new Satisİslerimleri();
+                SatislarForm frm = new SatislarForm();
                 frm.MdiParent = this;
                 frm.Show();
             }
@@ -173,6 +173,50 @@ namespace SaliPazariWinformsApp
             if (acikmi == false)
             {
                 AdminIslemleri frm = new AdminIslemleri();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_SatisModul_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(SatisModulu))
+                {
+                    item.Activate();
+                    acikmi = true;
+                }
+            }
+            if (acikmi == false)
+            {
+                SatisModulu frm = new SatisModulu();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_siparisYonetimi_Click(object sender, EventArgs e)
+        {
+            Form[] acikformlar = this.MdiChildren;
+
+            bool acikmi = false;
+
+            foreach (Form item in acikformlar)
+            {
+                if (item.GetType() == typeof(SiparisYönetimi))
+                {
+                    item.Activate();
+                    acikmi = true;
+                }
+            }
+            if (acikmi == false)
+            {
+                SiparisYönetimi frm = new SiparisYönetimi();
                 frm.MdiParent = this;
                 frm.Show();
             }

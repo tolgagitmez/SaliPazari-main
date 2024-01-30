@@ -39,13 +39,16 @@
             this.TSMI_Markalar = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_UrunForm = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_TedarikciForm = new System.Windows.Forms.ToolStripMenuItem();
+            this.satışModülüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_SatisModul = new System.Windows.Forms.ToolStripMenuItem();
             this.satışİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_satis = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_AlisIslemleri = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_siparisYonetimi = new System.Windows.Forms.ToolStripMenuItem();
             this.kullanıcıİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_admin = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_kullanici = new System.Windows.Forms.ToolStripMenuItem();
+            this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +76,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dosyaToolStripMenuItem,
             this.urunİşlemleriToolStripMenuItem,
+            this.satışModülüToolStripMenuItem,
             this.satışİşlemleriToolStripMenuItem,
             this.kullanıcıİşlemleriToolStripMenuItem,
             this.yardımToolStripMenuItem});
@@ -136,11 +140,27 @@
             this.TSMI_TedarikciForm.Text = "Tedarikçiler";
             this.TSMI_TedarikciForm.Click += new System.EventHandler(this.TSMI_TedarikciForm_Click);
             // 
+            // satışModülüToolStripMenuItem
+            // 
+            this.satışModülüToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_SatisModul});
+            this.satışModülüToolStripMenuItem.Name = "satışModülüToolStripMenuItem";
+            this.satışModülüToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
+            this.satışModülüToolStripMenuItem.Text = "Satış Modülü";
+            // 
+            // TSMI_SatisModul
+            // 
+            this.TSMI_SatisModul.Name = "TSMI_SatisModul";
+            this.TSMI_SatisModul.Size = new System.Drawing.Size(135, 26);
+            this.TSMI_SatisModul.Text = "Modül";
+            this.TSMI_SatisModul.Click += new System.EventHandler(this.TSMI_SatisModul_Click);
+            // 
             // satışİşlemleriToolStripMenuItem
             // 
             this.satışİşlemleriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSMI_satis,
-            this.TSMI_AlisIslemleri});
+            this.TSMI_AlisIslemleri,
+            this.TSMI_siparisYonetimi});
             this.satışİşlemleriToolStripMenuItem.Name = "satışİşlemleriToolStripMenuItem";
             this.satışİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.satışİşlemleriToolStripMenuItem.Text = "Satış ve Alış İşlemleri";
@@ -148,16 +168,23 @@
             // TSMI_satis
             // 
             this.TSMI_satis.Name = "TSMI_satis";
-            this.TSMI_satis.Size = new System.Drawing.Size(123, 26);
-            this.TSMI_satis.Text = "Satış";
+            this.TSMI_satis.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_satis.Text = "Satışlar";
             this.TSMI_satis.Click += new System.EventHandler(this.TSMI_satis_Click);
             // 
             // TSMI_AlisIslemleri
             // 
             this.TSMI_AlisIslemleri.Name = "TSMI_AlisIslemleri";
-            this.TSMI_AlisIslemleri.Size = new System.Drawing.Size(123, 26);
+            this.TSMI_AlisIslemleri.Size = new System.Drawing.Size(224, 26);
             this.TSMI_AlisIslemleri.Text = "Alış";
             this.TSMI_AlisIslemleri.Click += new System.EventHandler(this.TSMI_AlisIslemleri_Click);
+            // 
+            // TSMI_siparisYonetimi
+            // 
+            this.TSMI_siparisYonetimi.Name = "TSMI_siparisYonetimi";
+            this.TSMI_siparisYonetimi.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_siparisYonetimi.Text = "Sipariş Yönetimi";
+            this.TSMI_siparisYonetimi.Click += new System.EventHandler(this.TSMI_siparisYonetimi_Click);
             // 
             // kullanıcıİşlemleriToolStripMenuItem
             // 
@@ -168,24 +195,24 @@
             this.kullanıcıİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.kullanıcıİşlemleriToolStripMenuItem.Text = "Kullanıcı İşlemleri";
             // 
-            // yardımToolStripMenuItem
-            // 
-            this.yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
-            this.yardımToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
-            this.yardımToolStripMenuItem.Text = "Yardım";
-            // 
             // TSMI_admin
             // 
             this.TSMI_admin.Name = "TSMI_admin";
-            this.TSMI_admin.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_admin.Size = new System.Drawing.Size(208, 26);
             this.TSMI_admin.Text = "Admin İşlemleri";
             this.TSMI_admin.Click += new System.EventHandler(this.TSMI_admin_Click);
             // 
             // TSMI_kullanici
             // 
             this.TSMI_kullanici.Name = "TSMI_kullanici";
-            this.TSMI_kullanici.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_kullanici.Size = new System.Drawing.Size(208, 26);
             this.TSMI_kullanici.Text = "Kullanıcı İşlemleri";
+            // 
+            // yardımToolStripMenuItem
+            // 
+            this.yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
+            this.yardımToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.yardımToolStripMenuItem.Text = "Yardım";
             // 
             // AnaForm
             // 
@@ -229,5 +256,8 @@
         private System.Windows.Forms.ToolStripMenuItem TSMI_AlisIslemleri;
         private System.Windows.Forms.ToolStripMenuItem TSMI_admin;
         private System.Windows.Forms.ToolStripMenuItem TSMI_kullanici;
+        private System.Windows.Forms.ToolStripMenuItem satışModülüToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_SatisModul;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_siparisYonetimi;
     }
 }

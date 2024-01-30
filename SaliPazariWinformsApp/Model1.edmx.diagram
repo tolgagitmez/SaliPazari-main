@@ -28,6 +28,10 @@
         <AssociationConnector Association="SaliPazari_DBModel.FK_Urunler_Tedarikciler" />
         <EntityTypeShape EntityType="SaliPazari_DBModel.Alimlar" Width="1.5" PointX="9.75" PointY="7.625" />
         <AssociationConnector Association="SaliPazari_DBModel.FK_Alimlar_Urunler" />
+        <EntityTypeShape EntityType="SaliPazari_DBModel.TaksitDetaylar" Width="1.5" PointX="9.75" PointY="16.25" />
+        <EntityTypeShape EntityType="SaliPazari_DBModel.TaksitliSatislar" Width="1.5" PointX="7.5" PointY="13.75" />
+        <AssociationConnector Association="SaliPazari_DBModel.FK_TaksitDetaylar_Satislar" />
+        <AssociationConnector Association="SaliPazari_DBModel.FK_TaksitDetaylar_TaksitliSatis" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

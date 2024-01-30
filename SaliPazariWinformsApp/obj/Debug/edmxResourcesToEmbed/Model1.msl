@@ -45,6 +45,7 @@
     <EntitySetMapping Name="Satislars">
       <EntityTypeMapping TypeName="SaliPazari_DBModel.Satislar">
         <MappingFragment StoreEntitySet="Satislar">
+          <ScalarProperty Name="KrediKarti" ColumnName="KrediKarti" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Kasiyer_ID" ColumnName="Kasiyer_ID" />
           <ScalarProperty Name="Tarih" ColumnName="Tarih" />
@@ -137,6 +138,26 @@
           <ScalarProperty Name="Adet" ColumnName="Adet" />
           <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaksitDetaylars">
+      <EntityTypeMapping TypeName="SaliPazari_DBModel.TaksitDetaylar">
+        <MappingFragment StoreEntitySet="TaksitDetaylar">
+          <ScalarProperty Name="OdendiMi" ColumnName="OdendiMi" />
+          <ScalarProperty Name="TaksitMiktari" ColumnName="TaksitMiktari" />
+          <ScalarProperty Name="TaksitTarihi" ColumnName="TaksitTarihi" />
+          <ScalarProperty Name="SatislarID" ColumnName="SatislarID" />
+          <ScalarProperty Name="SatisID" ColumnName="SatisID" />
+          <ScalarProperty Name="TaksitID" ColumnName="TaksitID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaksitliSatislars">
+      <EntityTypeMapping TypeName="SaliPazari_DBModel.TaksitliSatislar">
+        <MappingFragment StoreEntitySet="TaksitliSatislar">
+          <ScalarProperty Name="ToplamTaksitSayisi" ColumnName="ToplamTaksitSayisi" />
+          <ScalarProperty Name="SatisID" ColumnName="SatisID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
